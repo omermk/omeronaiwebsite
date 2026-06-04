@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Omer on AI</title>
+  <meta name="description" content="Essays and analysis on enterprise AI adoption for DACH leaders. Published on this site first, then cross-posted to LinkedIn and Substack.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .writing-hero {
+      padding: clamp(72px, 10vw, 128px) 0 clamp(40px, 5vw, 64px);
+      border-bottom: var(--border-line);
+      background: var(--cream);
+    }
+    .filter-bar {
+      display: flex;
+      padding: 20px 0;
+      border-bottom: var(--border-line);
+      background: var(--cream);
+    }
+    .filter-bar-inner {
+      display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+    }
+    .filter-link {
+      font-family: var(--font-body); font-size: 0.85rem;
+      color: var(--ink-2); text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      cursor: pointer; background: none; border-top: 0; border-left: 0; border-right: 0;
+      font-size: 0.85rem;
+    }
+    .filter-link:hover { color: var(--blue); text-decoration: none; }
+    .filter-link.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .article-list { }
+    .article-row {
+      display: grid;
+      grid-template-columns: 120px 130px 1fr 80px;
+      align-items: baseline;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: var(--border-line);
+      cursor: pointer;
+      transition: background .2s var(--ease);
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .article-row:hover { background: var(--cream-2); }
+    .article-row:last-child { border-bottom: none; }
+    .row-date { font-family: var(--font-body); font-size: 0.78rem; color: var(--ink-3); letter-spacing: .02em; }
+    .row-tag { font-family: var(--font-body); font-size: 0.7rem; text-transform: uppercase; letter-spacing: .14em; color: var(--blue); font-weight: 500; }
+    .row-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 500; line-height: 1.25; color: var(--ink); margin: 0 0 8px; }
+    .row-hook { font-size: 0.92rem; color: var(--ink-3); line-height: 1.5; margin: 0; }
+    .row-read { font-family: var(--font-body); font-size: 0.78rem; color: var(--ink-3); text-align: right; }
+    .inline-sub {
+      background: var(--white);
+      border-top: var(--border-line);
+      padding: clamp(56px, 7vw, 96px) 0;
+    }
+    .inline-sub-inner { max-width: 720px; margin: 0 auto; }
+    @media (max-width: 760px) {
+      .article-row { grid-template-columns: 1fr !important; gap: 6px !important; }
+      .row-read { text-align: left !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav">
+  <a class="nav-mark" href="index.html">Omer on AI<span class="nav-dot">.</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="perspective.html">Perspective</a>
+    <a href="writing.html" class="active">Writing</a>
+    <a href="newsletter.html">Newsletter</a>
+  </nav>
+  <div class="nav-right">
+    <a class="nav-social" href="#" aria-label="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      LinkedIn
+    </a>
+    <a class="nav-social" href="#" aria-label="Substack" style="padding:4px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+    </a>
+    <a class="btn btn-sm" href="newsletter.html">Subscribe</a>
+  </div>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</header>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">Home</a>
+  <a href="perspective.html">Perspective</a>
+  <a href="writing.html" class="active">Writing</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a class="btn" href="newsletter.html" style="height:40px;font-size:0.82rem;">Subscribe</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="writing-hero reveal">
+    <div class="shell">
+      <div class="reveal-item" style="margin-bottom:24px"><span class="eyebrow">Writing</span></div>
+      <h1 class="h-hero reveal-item">Everything <em>published.</em></h1>
+      <p class="reveal-item lede" style="max-width:620px;margin-top:12px">Essays and analysis on enterprise AI adoption for DACH leaders. Published on this site first, then cross-posted to LinkedIn and Substack.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="shell">
+      <div class="filter-bar-inner">
+        <button class="filter-link active" data-filter="All">All</button>
+        <button class="filter-link" data-filter="AI Strategy">AI Strategy</button>
+        <button class="filter-link" data-filter="Leadership">Leadership</button>
+        <button class="filter-link" data-filter="DACH">DACH</button>
+        <button class="filter-link" data-filter="Case Studies">Case Studies</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE LIST -->
+  <div id="article-list">
+    <div class="shell">
+      <div id="articles">
+        <a class="article-row" href="article.html" data-tag="AI Strategy">
+          <span class="row-date">May 2026</span>
+          <span class="row-tag">AI Strategy</span>
+          <div>
+            <h3 class="row-title">Why DACH Enterprises Are Stuck at Layer Two</h3>
+            <p class="row-hook">After hundreds of conversations with enterprise leaders, one pattern keeps repeating — and it's not a technology problem.</p>
+          </div>
+          <span class="row-read">6 min</span>
+        </a>
+        <a class="article-row" href="article.html" data-tag="Leadership">
+          <span class="row-date">April 2026</span>
+          <span class="row-tag">Leadership</span>
+          <div>
+            <h3 class="row-title">The Proof-of-Concept Trap Is a Structural Problem</h3>
+            <p class="row-hook">You cannot fit an AI-native function into a legacy organisation. You have to build in parallel.</p>
+          </div>
+          <span class="row-read">5 min</span>
+        </a>
+        <a class="article-row" href="article.html" data-tag="DACH">
+          <span class="row-date">March 2026</span>
+          <span class="row-tag">DACH</span>
+          <div>
+            <h3 class="row-title">Germany at 59%: What the Adoption Gap Actually Means</h3>
+            <p class="row-hook">The headline number hides the real story. The gap is not about tools — it's about organisational logic.</p>
+          </div>
+          <span class="row-read">4 min</span>
+        </a>
+        <a class="article-row" href="article.html" data-tag="AI Strategy">
+          <span class="row-date">February 2026</span>
+          <span class="row-tag">AI Strategy</span>
+          <div>
+            <h3 class="row-title">Why Your AI Pilot Succeeded and Nothing Changed</h3>
+            <p class="row-hook">The pilot worked. The ROI was real. So why is the organisation exactly the same six months later?</p>
+          </div>
+          <span class="row-read">7 min</span>
+        </a>
+        <a class="article-row" href="article.html" data-tag="Leadership">
+          <span class="row-date">January 2026</span>
+          <span class="row-tag">Leadership</span>
+          <div>
+            <h3 class="row-title">The Question Every DACH Board Is Getting Wrong</h3>
+            <p class="row-hook">Boards are asking 'how do we adopt AI?' They should be asking 'what are we willing to rebuild?'</p>
+          </div>
+          <span class="row-read">5 min</span>
+        </a>
+        <a class="article-row" href="article.html" data-tag="Case Studies">
+          <span class="row-date">December 2025</span>
+          <span class="row-tag">Case Studies</span>
+          <div>
+            <h3 class="row-title">Layer 3 in Practice: One Function, Two Versions</h3>
+            <p class="row-hook">A mid-market manufacturer built their quality control function twice — once the legacy way, once AI-native. Here's what happened.</p>
+          </div>
+          <span class="row-read">8 min</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INLINE SUBSCRIBE -->
+  <section class="inline-sub">
+    <div class="shell">
+      <div class="inline-sub-inner">
+        <p style="font-family:var(--font-display);font-size:1.6rem;font-weight:400;line-height:1.3;margin:0 0 20px">Subscribe to get new essays in your inbox <em style="color:var(--blue)">→</em></p>
+        <!-- Form not yet connected -->
+        <form class="email-row" action="#" onsubmit="return false;" style="max-width:480px">
+          <input class="input" type="email" placeholder="your@work-email.com" required>
+          <button class="btn" type="submit">Subscribe Free</button>
+        </form>
+        <p class="legal-line">Published twice monthly. DSGVO-compliant. <a href="impressum.html#datenschutz">Datenschutzerklärung</a>. One click to leave.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div class="footer-wrapper">
+  <p class="footer-disclaimer">All views on this site are my own. They do not represent the views of my employer.</p>
+  <footer class="site-footer">
+    <a class="footer-mark" href="index.html">Omer on AI<span class="footer-dot">.</span></a>
+    <span class="footer-tagline">Beyond the Demo.</span>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <span class="footer-sep">·</span>
+      <a href="impressum.html#datenschutz">Datenschutzerklärung</a>
+      <span class="footer-sep">·</span>
+      <a href="#">LinkedIn</a>
+      <span class="footer-sep">·</span>
+      <a href="#">Substack</a>
+    </div>
+    <span class="footer-copy">© 2026</span>
+  </footer>
+</div>
+
+<script>
+  // Mobile nav toggle
+  const burger = document.getElementById('nav-burger');
+  const mobileNav = document.getElementById('mobile-nav');
+  burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!burger.contains(e.target) && !mobileNav.contains(e.target)) mobileNav.classList.remove('open');
+  });
+
+  // Filter
+  const filters = document.querySelectorAll('.filter-link');
+  const rows = document.querySelectorAll('.article-row');
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      rows.forEach((row) => {
+        row.style.display = (f === 'All' || row.dataset.tag === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+</body>
+</html>

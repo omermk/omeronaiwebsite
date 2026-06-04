@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omer on AI — Enterprise AI for European and Middle East Leaders</title>
+  <meta name="description" content="Enterprise AI adoption analysis for European and Middle East leaders. No hype, no vendor agenda. Published twice monthly by Omer, senior enterprise AI advisor at Google.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Hero */
+    .hero-outer { border-bottom: var(--border-line); background: var(--cream); }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: var(--border-line);
+      background: var(--cream);
+      margin: clamp(28px, 4vw, 56px) 0;
+    }
+    .hero-left {
+      padding: clamp(56px, 6vw, 88px) clamp(28px, 4vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+    }
+    .byline-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 22px;
+      margin-bottom: 2px;
+      border-bottom: var(--border-line);
+    }
+    .byline-portrait {
+      width: 88px; height: 88px;
+      border: var(--border-line);
+      background: var(--cream-2);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .byline-portrait img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      filter: grayscale(100%) contrast(1.02);
+      display: block;
+    }
+    .byline-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .byline-label {
+      font-family: var(--font-body); font-size: 0.62rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
+      margin-bottom: 4px;
+    }
+    .byline-name {
+      font-family: var(--font-display); font-weight: 500; font-size: 1.6rem;
+      line-height: 1; color: var(--ink); margin: 0; letter-spacing: -0.005em;
+    }
+    .byline-role {
+      font-family: var(--font-body); font-size: 0.82rem; font-weight: 300;
+      color: var(--ink-3); margin: 4px 0 0; line-height: 1.45;
+    }
+    .hero-form-wrap { max-width: 480px; }
+    /* Hero right — framework panel */
+    .hero-right {
+      background: var(--cream-2);
+      padding: clamp(48px, 5vw, 72px) clamp(28px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      border-left: var(--border-line);
+    }
+    .panel-label {
+      font-family: var(--font-body); font-size: 0.66rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-3);
+      margin-bottom: 28px;
+    }
+    .layer-row {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(26,26,26,0.08);
+    }
+    .layer-row:first-of-type { border-top: none; }
+    .layer-num {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 1.7rem; color: var(--ink-3);
+    }
+    .layer-name { font-family: var(--font-body); font-weight: 500; font-size: 0.95rem; margin: 0; color: var(--ink); }
+    .layer-desc { font-size: 0.82rem; color: var(--ink); opacity: 0.72; margin: 2px 0 0; line-height: 1.45; }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      margin-top: 36px; padding-top: 24px;
+      border-top: 1px solid rgba(26,26,26,0.16);
+    }
+    .stat-num { font-family: var(--font-display); font-size: 2.2rem; line-height: 1; color: var(--ink); margin: 0; }
+    .stat-lbl { font-size: 0.72rem; color: var(--ink-3); margin: 8px 0 0; line-height: 1.4; }
+
+    /* Proof strip */
+    .proof-strip { background: var(--white); border-bottom: var(--border-line); }
+    .metrics {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      padding: clamp(56px, 7vw, 96px) 0 clamp(20px, 2.5vw, 32px);
+    }
+    .metric { padding: 0 28px; border-right: var(--border-line); }
+    .metric:last-child { border-right: none; }
+    .metric-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4rem);
+      line-height: 1; color: var(--ink); margin: 0;
+    }
+    .metric-num sup { font-size: 0.6em; color: var(--ink-3); }
+    .metric-lbl { font-size: 0.92rem; color: var(--ink-3); margin: 12px 0 0; line-height: 1.4; }
+    .disclaimer {
+      padding: 0 28px clamp(36px, 5vw, 56px);
+      font-size: 0.74rem; color: var(--ink-3);
+      font-style: italic; line-height: 1.6; max-width: 720px;
+    }
+
+    /* Thesis band */
+    .thesis-band {
+      background: var(--cream);
+      border-top: var(--border-line); border-bottom: var(--border-line);
+      padding: clamp(56px, 7vw, 96px) 0;
+    }
+    .thesis {
+      font-family: var(--font-display); font-weight: 300; font-style: italic;
+      font-size: clamp(1.6rem, 2.8vw, 2.3rem); line-height: 1.35;
+      color: var(--ink); margin: 20px 0 0; max-width: 920px;
+    }
+    .thesis-attr {
+      margin-top: 22px; font-family: var(--font-body);
+      font-size: 0.78rem; color: var(--ink-3); letter-spacing: 0.04em;
+    }
+
+    /* Logos band */
+    .logos-band {
+      background: var(--white);
+      border-bottom: var(--border-line);
+      padding: clamp(40px, 5vw, 64px) 0;
+    }
+    .logos-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: clamp(20px, 4vw, 56px);
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+    .logo-word {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      color: var(--ink-3); letter-spacing: 0.005em; line-height: 1;
+    }
+
+    /* The Lens */
+    .lens-section {
+      padding: clamp(72px, 9vw, 128px) 0;
+      background: var(--cream);
+      border-bottom: var(--border-line);
+    }
+    .lens-intro {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: clamp(40px, 6vw, 96px); margin-bottom: 56px;
+    }
+    .lens-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: var(--border-line); background: var(--white);
+    }
+    .lens-cell {
+      padding: 40px 40px 36px;
+      border-right: var(--border-line); border-bottom: var(--border-line);
+    }
+    .lens-cell:nth-child(even) { border-right: none; }
+    .lens-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .lens-num {
+      font-family: var(--font-display); font-weight: 400; font-size: 1.5rem;
+      color: var(--blue); font-style: italic; margin: 0 0 16px;
+    }
+    .lens-eyebrow {
+      font-family: var(--font-body); font-size: 0.66rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--ink-3); margin: 0 0 14px;
+    }
+    .lens-q {
+      font-family: var(--font-display); font-size: 1.55rem; font-weight: 400;
+      line-height: 1.2; color: var(--ink); margin: 0 0 14px;
+    }
+    .lens-p { font-size: 0.92rem; color: var(--ink-3); line-height: 1.55; margin: 0; }
+
+    /* Writing section */
+    .writing-section {
+      background: var(--white); border-bottom: var(--border-line);
+      padding: clamp(72px, 9vw, 128px) 0;
+    }
+    .writing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: var(--border-line); background: var(--white); margin-top: 8px;
+    }
+    .writing-card {
+      padding: 32px 28px;
+      border-right: var(--border-line);
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .writing-card:last-child { border-right: none; }
+    .card-title {
+      font-family: var(--font-display); font-size: 1.4rem; font-weight: 500;
+      line-height: 1.2; color: var(--ink); margin: 0;
+    }
+    .card-hook { font-size: 0.92rem; color: var(--ink); line-height: 1.55; margin: 0; opacity: 0.85; }
+
+    /* Dark CTA */
+    .dark-cta {
+      background: var(--ink); color: var(--cream);
+      padding: clamp(72px, 9vw, 128px) 0;
+    }
+    .dark-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 96px);
+    }
+    .trust-card {
+      margin-top: 28px; padding: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+    }
+    .trust-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .trust-chip {
+      font-family: var(--font-body); font-size: 0.72rem; color: var(--ink-3);
+      padding: 5px 10px; border: 1px solid var(--border); border-radius: 2px;
+    }
+    .blockquote-dark {
+      margin: 0;
+      font-family: var(--font-display); font-style: italic; font-weight: 300;
+      font-size: 1.18rem; line-height: 1.45;
+      color: rgba(246,244,241,.92);
+    }
+    .blockquote-attr {
+      margin-top: 12px;
+      font-family: var(--font-body); font-size: 0.76rem;
+      color: rgba(246,244,241,.55); letter-spacing: .02em;
+    }
+
+    @media (max-width: 760px) {
+      .byline-row { grid-template-columns: 1fr !important; }
+      .lens-grid { grid-template-columns: 1fr !important; }
+      .lens-cell { border-right: none !important; border-bottom: var(--border-line) !important; }
+      .lens-cell:last-child { border-bottom: none !important; }
+      .writing-grid { grid-template-columns: 1fr !important; }
+      .writing-card { border-right: none !important; border-bottom: var(--border-line); }
+      .writing-card:last-child { border-bottom: none; }
+    }
+    @media (max-width: 900px) {
+      .lens-intro { grid-template-columns: 1fr !important; }
+      .dark-grid { grid-template-columns: 1fr !important; }
+      .metrics { grid-template-columns: 1fr !important; }
+      .metric { border-right: none !important; border-bottom: var(--border-line); padding: 20px 0; }
+      .metric:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav">
+  <a class="nav-mark" href="index.html">Omer on AI<span class="nav-dot">.</span></a>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="perspective.html">Perspective</a>
+    <a href="writing.html">Writing</a>
+    <a href="newsletter.html">Newsletter</a>
+  </nav>
+  <div class="nav-right">
+    <a class="nav-social" href="#" aria-label="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      LinkedIn
+    </a>
+    <a class="nav-social" href="#" aria-label="Substack" style="padding: 4px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+    </a>
+    <a class="btn btn-sm" href="newsletter.html">Subscribe</a>
+  </div>
+  <button class="nav-burger" id="nav-burger" aria-label="Menu">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+</header>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="active">Home</a>
+  <a href="perspective.html">Perspective</a>
+  <a href="writing.html">Writing</a>
+  <a href="newsletter.html">Newsletter</a>
+  <a class="btn" href="newsletter.html" style="height:40px;font-size:0.82rem;">Subscribe</a>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-outer">
+    <div class="shell">
+      <div class="hero-grid hero-split">
+        <!-- Left -->
+        <div class="hero-left reveal">
+          <div class="byline-row reveal-item">
+            <div class="byline-portrait">
+              <img src="assets/portrait-omer.png" alt="Portrait of Omer">
+            </div>
+            <div class="byline-text">
+              <span class="byline-label">By the author</span>
+              <p class="byline-name">Omer<span style="color:var(--blue)">.</span></p>
+              <p class="byline-role">Senior enterprise AI advisor, Google<sup style="font-size:0.7em;color:var(--ink-3)">*</sup> · Germany</p>
+            </div>
+          </div>
+          <div class="reveal-item"><span class="eyebrow">Enterprise AI · Europe &amp; Middle East</span></div>
+          <h1 class="h-hero reveal-item">Enterprise AI doesn't fail <em>in the lab.</em></h1>
+          <p class="lede reveal-item">It erodes on the way to production. I write for European and Middle East enterprise leaders navigating AI adoption beyond the proof-of-concept trap — no hype, no vendor agenda.</p>
+          <div class="hero-form-wrap reveal-item">
+            <!-- Form not yet connected -->
+            <form class="email-row" action="#" onsubmit="return false;">
+              <input class="input" type="email" placeholder="your@work-email.com" required>
+              <button class="btn" type="submit">Subscribe Free</button>
+            </form>
+            <p class="legal-line">Published twice monthly. DSGVO-compliant. <a href="impressum.html#datenschutz">Datenschutzerklärung</a>. One click to leave.</p>
+          </div>
+          <div class="reveal-item">
+            <a class="arrow-link" href="perspective.html">Read my Perspective <span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <!-- Right — framework panel -->
+        <aside class="hero-right">
+          <p class="panel-label">The AI Adoption Layers — where is your company?</p>
+          <div>
+            <div class="layer-row">
+              <span class="layer-num">01</span>
+              <div>
+                <p class="layer-name">Experimenting</p>
+                <p class="layer-desc">Copilot licenses, impressive demos. Almost nothing reaches production.</p>
+              </div>
+              <span class="pill pill--red">~40% DACH</span>
+            </div>
+            <div class="layer-row">
+              <span class="layer-num">02</span>
+              <div>
+                <p class="layer-name">Automating</p>
+                <p class="layer-desc">AI in bounded contexts. Real gains — but the organisation is unchanged.</p>
+              </div>
+              <span class="pill pill--blue">~60% DACH</span>
+            </div>
+            <div class="layer-row">
+              <span class="layer-num">03</span>
+              <div>
+                <p class="layer-name">Redesigning</p>
+                <p class="layer-desc">Build AI-native functions in parallel. AB-test against the legacy model.</p>
+              </div>
+              <span class="pill pill--green">Rare</span>
+            </div>
+            <div class="layer-row">
+              <span class="layer-num">04</span>
+              <div>
+                <p class="layer-name">Augmenting</p>
+                <p class="layer-desc">External AI agents as actual workforce. No DACH company is here yet.</p>
+              </div>
+              <span class="pill pill--neutral">0% DACH</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div><p class="stat-num">59%</p><p class="stat-lbl">Germany AI adoption</p></div>
+            <div><p class="stat-num">74%</p><p class="stat-lbl">EU average</p></div>
+            <div><p class="stat-num">0%</p><p class="stat-lbl">DACH at Layer 3 or 4</p></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <section class="proof-strip">
+    <div class="shell">
+      <div class="metrics r-3col">
+        <div class="metric cell-div">
+          <p class="metric-num">20<span style="font-size:0.6em">+</span></p>
+          <p class="metric-lbl">Years across cloud, data and AI in enterprise tech</p>
+        </div>
+        <div class="metric cell-div">
+          <p class="metric-num">Germany</p>
+          <p class="metric-lbl">Writing from here, for DACH and the Middle East</p>
+        </div>
+        <div class="metric cell-div">
+          <p class="metric-num">Google<a href="#disclaimer" style="color:var(--ink-3);text-decoration:none" aria-label="See disclaimer">*</a></p>
+          <p class="metric-lbl">Current senior enterprise AI advisory role</p>
+        </div>
+      </div>
+      <p id="disclaimer" class="disclaimer">* All views are my own. They do not represent the views of my employer.</p>
+    </div>
+  </section>
+
+  <!-- THESIS PULL QUOTE -->
+  <section class="thesis-band">
+    <div class="shell">
+      <span class="eyebrow">Thesis</span>
+      <p class="thesis">"Enterprise AI doesn't fail because the technology is wrong. It fails because the organisation can't absorb it. The companies pulling ahead are the ones <em style="color:var(--blue)">willing to admit that.</em>"</p>
+      <p class="thesis-attr">— Omer, in conversation with enterprise leaders across DACH and the GCC.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE STRIP -->
+  <section class="logos-band">
+    <div class="shell">
+      <span class="eyebrow">Experience across</span>
+      <div class="logos-row">
+        <span class="logo-word">Google</span>
+        <span class="logo-word">AWS</span>
+        <span class="logo-word">Technology Consulting</span>
+        <span class="logo-word">Data Companies</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LENS -->
+  <section class="lens-section">
+    <div class="shell">
+      <div class="lens-intro r-2col">
+        <div>
+          <span class="eyebrow">The Lens</span>
+          <h2 class="h-section" style="margin-top:16px">Four questions <em>I keep asking.</em></h2>
+        </div>
+        <p style="font-size:1.05rem;line-height:1.7;color:var(--ink-3);margin:0;align-self:center">Every issue of the newsletter sits inside one of these. They're the questions DACH leaders keep raising in real conversations — not the ones consultants put on a slide.</p>
+      </div>
+      <div class="lens-grid r-2col">
+        <article class="lens-cell cell-div">
+          <p class="lens-num">01</p>
+          <p class="lens-eyebrow">Strategy</p>
+          <h3 class="lens-q">Why do pilots fail to reach production?</h3>
+          <p class="lens-p">The gap between a working demo and a resilient enterprise system is wider than most realise. I write about where that gap actually lives.</p>
+        </article>
+        <article class="lens-cell cell-div">
+          <p class="lens-num">02</p>
+          <p class="lens-eyebrow">Governance</p>
+          <h3 class="lens-q">Who owns the intelligence?</h3>
+          <p class="lens-p">Data sovereignty and model ownership in a world of rented foundational models — the decision that will shape every other AI decision.</p>
+        </article>
+        <article class="lens-cell cell-div">
+          <p class="lens-num">03</p>
+          <p class="lens-eyebrow">Architecture</p>
+          <h3 class="lens-q">Is your stack AI-native or AI-adjacent?</h3>
+          <p class="lens-p">Most enterprises have bolted AI onto legacy infrastructure. The question is whether that infrastructure can survive the next cycle.</p>
+        </article>
+        <article class="lens-cell cell-div">
+          <p class="lens-num">04</p>
+          <p class="lens-eyebrow">Operations</p>
+          <h3 class="lens-q">What is the cost of inaction?</h3>
+          <p class="lens-p">The hidden technical debt accruing from delayed structural AI literacy across the workforce — and how to measure it before the board does.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WRITING PREVIEW -->
+  <section class="writing-section">
+    <div class="shell">
+      <div style="margin-bottom:24px"><span class="eyebrow">Writing</span></div>
+      <h2 class="h-section">Thinking about AI that <em>actually ships.</em></h2>
+      <div class="writing-grid r-3col">
+        <article class="writing-card cell-div">
+          <span class="tag">AI Strategy</span>
+          <h3 class="card-title">Why DACH Enterprises Are Stuck at Layer Two</h3>
+          <p class="card-hook">After hundreds of conversations with enterprise leaders, one pattern keeps repeating — and it's not a technology problem.</p>
+          <span class="meta" style="margin-top:auto">May 2026 · 6 min read</span>
+        </article>
+        <article class="writing-card cell-div">
+          <span class="tag">Leadership</span>
+          <h3 class="card-title">The Proof-of-Concept Trap Is a Structural Problem</h3>
+          <p class="card-hook">You cannot fit an AI-native function into a legacy organisation. You have to build in parallel.</p>
+          <span class="meta" style="margin-top:auto">April 2026 · 5 min read</span>
+        </article>
+        <article class="writing-card cell-div">
+          <span class="tag">DACH</span>
+          <h3 class="card-title">Germany at 59%: What the Adoption Gap Actually Means</h3>
+          <p class="card-hook">The headline number hides the real story. The gap is not about tools — it's about organisational logic.</p>
+          <span class="meta" style="margin-top:auto">March 2026 · 4 min read</span>
+        </article>
+      </div>
+      <div style="margin-top:28px">
+        <a class="arrow-link" href="writing.html">See all writing <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DARK NEWSLETTER CTA -->
+  <section class="dark-cta">
+    <div class="shell">
+      <div class="dark-grid r-2col">
+        <div>
+          <div style="margin-bottom:20px">
+            <span class="eyebrow" style="color:#9bb3d6">Newsletter</span>
+          </div>
+          <h2 class="h-section" style="color:var(--cream)">No noise. No hype. <em style="color:#9bb3d6">Just what matters.</em></h2>
+          <p style="font-size:1rem;color:rgba(246,244,241,.72);line-height:1.6;max-width:480px;margin:0">For DACH enterprise leaders who need to make real AI decisions — not read another breathless prediction. Published twice monthly.</p>
+        </div>
+        <div>
+          <!-- Form not yet connected -->
+          <div class="dark-form">
+            <form class="email-row" action="#" onsubmit="return false;">
+              <input class="input" type="email" placeholder="your@work-email.com" required>
+              <button class="btn" type="submit">Subscribe Free</button>
+            </form>
+            <p class="legal-line">DSGVO-konform. Deine Daten werden nicht weitergegeben. <a href="impressum.html#datenschutz">Datenschutzerklärung</a>. Abmeldung jederzeit mit einem Klick.</p>
+          </div>
+          <div style="margin-top:18px">
+            <a class="arrow-link" href="#" style="color:#9bb3d6">Also available on Substack <span class="arrow">→</span></a>
+          </div>
+          <div class="trust-card">
+            <blockquote class="blockquote-dark">"This is the only AI newsletter I forward to my leadership team without caveats."</blockquote>
+            <p class="blockquote-attr">Head of Digital, DACH enterprise</p>
+            <div class="trust-chips">
+              <span class="trust-chip">Twice monthly</span>
+              <span class="trust-chip">No sponsors</span>
+              <span class="trust-chip">One-click unsubscribe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div class="footer-wrapper">
+  <p class="footer-disclaimer">All views on this site are my own. They do not represent the views of my employer.</p>
+  <footer class="site-footer">
+    <a class="footer-mark" href="index.html">Omer on AI<span class="footer-dot">.</span></a>
+    <span class="footer-tagline">Beyond the Demo.</span>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a>
+      <span class="footer-sep">·</span>
+      <a href="impressum.html#datenschutz">Datenschutzerklärung</a>
+      <span class="footer-sep">·</span>
+      <a href="#">LinkedIn</a>
+      <span class="footer-sep">·</span>
+      <a href="#">Substack</a>
+    </div>
+    <span class="footer-copy">© 2026</span>
+  </footer>
+</div>
+
+<script>
+  const burger = document.getElementById('nav-burger');
+  const mobileNav = document.getElementById('mobile-nav');
+  burger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!burger.contains(e.target) && !mobileNav.contains(e.target)) {
+      mobileNav.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
