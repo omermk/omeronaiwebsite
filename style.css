@@ -445,7 +445,6 @@ main { padding-top: 58px; }
 .hero-split {
   display: grid;
   grid-template-columns: 5fr 7fr;
-  min-height: calc(100vh - 58px);
   width: 100%;
 }
 .hero-photo {
@@ -476,7 +475,7 @@ main { padding-top: 58px; }
 }
 .hero-copy {
   display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(40px, 6vw, 88px) clamp(28px, 5vw, 72px);
+  padding: clamp(28px, 3vw, 48px) clamp(28px, 5vw, 72px);
 }
 .hero-name {
   font-family: var(--font-display);
