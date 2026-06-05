@@ -34,7 +34,9 @@
   --radius:         2px;
   --border-line:    1px solid var(--border);
   --section-py:     clamp(72px, 10vw, 128px);
-  --gutter:         clamp(20px, 4vw, 56px);
+  --gutter:         clamp(16px, 2vw, 32px);
+  --site-width:     70%;
+  --site-side:      calc((100% - var(--site-width)) / 2);
   --col-narrow:     680px;
   --rule-eyebrow:   20px;
 
@@ -45,7 +47,7 @@
 
 /* Shell */
 .shell {
-  max-width: 1600px;
+  max-width: var(--site-width);
   margin: 0 auto;
   width: 100%;
   padding-left: var(--gutter);
@@ -255,7 +257,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   height: 58px;
   display: flex;
   align-items: center;
-  padding: 0 28px;
+  padding: 0 max(20px, calc((100% - var(--site-width)) / 2 + var(--gutter)));
   gap: 28px;
   background: var(--cream);
   border-bottom: var(--border-line);
@@ -325,7 +327,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .site-footer {
   background: var(--ink);
   color: #b8b6b1;
-  padding: 22px 28px;
+  padding: 22px max(20px, calc((100% - var(--site-width)) / 2 + var(--gutter)));
   display: flex;
   align-items: center;
   gap: 24px;
@@ -419,7 +421,7 @@ main { padding-top: 58px; }
   top: 58px; left: 0; right: 0;
   background: var(--cream);
   border-bottom: var(--border-line);
-  padding: 20px 28px;
+  padding: 20px max(20px, calc((100% - var(--site-width)) / 2 + var(--gutter)));
   flex-direction: column;
   gap: 16px;
   z-index: 49;
@@ -444,6 +446,7 @@ main { padding-top: 58px; }
   display: grid;
   grid-template-columns: 5fr 7fr;
   min-height: calc(100vh - 58px);
+  width: 100%;
 }
 .hero-photo {
   position: relative;
