@@ -35,8 +35,8 @@
   --border-line:    1px solid var(--border);
   --section-py:     clamp(40px, 6vw, 80px);
   --gutter:         clamp(16px, 2vw, 32px);
-  --site-width:     70%;
-  --site-side:      calc((100% - var(--site-width)) / 2);
+  --site-width:     70vw;
+  --site-side:      calc((100vw - 70vw) / 2);
   --col-narrow:     680px;
   --rule-eyebrow:   20px;
 
