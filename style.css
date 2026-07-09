@@ -602,13 +602,14 @@ main { padding-top: 58px; }
   gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
+.layers-intro .h-section { max-width: 420px; }
 .layers-intro-body {
   font-size: var(--meta-size);
   font-weight: 300;
   color: var(--ink-3);
   line-height: 1.75;
   margin: 0 0 24px;
-  max-width: 340px;
+  max-width: 400px;
 }
 .layers-cards-grid {
   display: grid;
