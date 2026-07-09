@@ -273,8 +273,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .nav-mark {
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.35rem;
+  font-weight: 500;
+  font-size: 1.6rem;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: -0.005em;
@@ -282,7 +282,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   flex-shrink: 0;
 }
 .nav-mark:hover { text-decoration: none; color: var(--ink); }
-.nav-dot { color: var(--blue); }
+.nav-dot { color: var(--blue); font-size: 1.15em; }
 .nav-links {
   display: flex;
   gap: 26px;
@@ -476,8 +476,8 @@ main { padding-top: 58px; }
   color: rgba(255,255,255,0.42);
 }
 .hero-copy {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(28px, 3vw, 48px) clamp(28px, 5vw, 72px);
+  display: flex; flex-direction: column; justify-content: flex-start;
+  padding: clamp(40px, 5vw, 64px) clamp(28px, 5vw, 72px);
 }
 .hero-name {
   font-family: var(--font-display);
@@ -809,6 +809,7 @@ main { padding-top: 58px; }
 .layers-cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 14px;
 }
 .layer-card {
@@ -895,7 +896,7 @@ main { padding-top: 58px; }
 .about-body {
   font-size: var(--body-size);
   font-weight: 300;
-  color: var(--ink-2);
+  color: var(--ink-3);
   line-height: 1.8;
   margin: 0 0 16px;
 }
