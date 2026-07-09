@@ -64,6 +64,7 @@
 /* Resets */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+html { overflow-x: hidden; }
 body {
   background: var(--cream);
   color: var(--ink);
@@ -73,6 +74,7 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 h1, h2, h3, h4, h5 {
   font-family: var(--font-display);
@@ -407,7 +409,7 @@ main { padding-top: 58px; }
    ========================================= */
 .hero-split {
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   width: var(--site-width);
   min-width: 0;
   margin: 0 auto;
@@ -463,10 +465,10 @@ main { padding-top: 58px; }
 .sec-head .h-section { margin-top: 14px; }
 
 /* INDEX — proof */
-.proof-nums { display: grid; grid-template-columns: repeat(3, 1fr); border: var(--border-line); border-radius: var(--radius); overflow: hidden; margin-bottom: 36px; }
+.proof-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--border-line); border-radius: var(--radius); overflow: hidden; margin-bottom: 36px; }
 
 /* INDEX — writing cards */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); border: var(--border-line); border-radius: var(--radius); overflow: hidden; margin-bottom: 32px; }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: var(--border-line); border-radius: var(--radius); overflow: hidden; margin-bottom: 32px; }
 .card { padding: 30px 26px; border-right: var(--border-line); display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: background var(--dur) var(--ease); }
 .card:last-child { border-right: none; }
 .card:hover { background: var(--cream); text-decoration: none; }
@@ -593,7 +595,7 @@ main { padding-top: 58px; }
 .layers-section { background: var(--cream-2); border-top: var(--border-line); --ink-3: #4f4c42; }
 .layers-layout {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
@@ -608,7 +610,7 @@ main { padding-top: 58px; }
 }
 .layers-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
   gap: 14px;
 }
@@ -692,7 +694,7 @@ main { padding-top: 58px; }
 .about-section { border-top: var(--border-line); }
 .about-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
   align-items: start;
 }
