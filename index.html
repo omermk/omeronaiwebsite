@@ -17,13 +17,11 @@
     <a class="nav-ext" href="https://omeronai.substack.com" target="_blank" rel="noopener">Articles ↗</a>
   </nav>
   <div class="nav-right">
-    <a class="btn-outline btn-sm" href="https://www.linkedin.com/in/omkhan/" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-      Follow me on LinkedIn ↗
+    <a class="nav-icon-link" href="https://www.linkedin.com/in/omkhan/" target="_blank" rel="noopener" aria-label="Follow on LinkedIn">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
     </a>
-    <a class="btn btn-sm" href="https://omeronai.substack.com" target="_blank" rel="noopener">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-      Subscribe on Substack
+    <a class="nav-icon-link" href="https://omeronai.substack.com" target="_blank" rel="noopener" aria-label="Subscribe on Substack">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
     </a>
   </div>
   <button class="nav-burger" id="nav-burger" aria-label="Menu">
@@ -54,8 +52,8 @@
     <p class="hero-tagline reveal-item">Making sense of AI, beyond the demo.</p>
     <p class="hero-intro reveal-item">I help enterprise leaders navigate the gap between AI ambition and real-world adoption.<br><br>Drawing on years of experience leading AI transformation across global enterprises, I share practical insights on strategy, governance, architecture, and execution, without the hype or vendor noise.</p>
     <div class="hero-actions reveal-item">
-      <a class="btn" href="#subscribe">Subscribe on Substack</a>
-      <p class="hero-actions-note">Or scroll down to browse recent writing.</p>
+      <a class="link-arrow" href="https://omeronai.substack.com" target="_blank" rel="noopener">Follow my thinking on Substack ↗</a>
+      <a class="link-arrow" href="https://www.linkedin.com/in/omkhan/" target="_blank" rel="noopener">Follow on LinkedIn ↗</a>
     </div>
   </div>
 </section>
@@ -153,27 +151,21 @@
 </section>
 
 <!-- SUBSCRIBE CTA -->
-<section class="subscribe-dark" id="subscribe">
+<section class="subscribe-light" id="subscribe">
   <div class="shell sec">
-    <div class="subscribe-grid">
-      <div class="subscribe-copy reveal">
-        <h2 class="subscribe-heading">Worth your attention.<br>Not another AI newsletter.</h2>
-        <p class="subscribe-body">Thoughtful essays, practical frameworks, and lessons from real-world AI transformation.</p>
-        <p class="subscribe-body">Designed to help enterprise leaders avoid expensive detours, ask better questions, and move from AI experimentation to real adoption.</p>
-        <p class="subscribe-free">Free to subscribe.</p>
+    <div class="subscribe-center reveal">
+      <h2 class="subscribe-light-heading">Get Perspectives in your inbox.</h2>
+      <p class="subscribe-light-body">Practical essays on enterprise AI strategy, governance, and execution, sent straight to your inbox.</p>
+      <div class="subscribe-embed-wrap-light">
+        <iframe
+          src="https://omeronai.substack.com/embed"
+          title="Subscribe to Omer on AI"
+          height="150"
+          scrolling="no"
+          loading="lazy">
+        </iframe>
       </div>
-      <div class="subscribe-form-col reveal d1">
-        <div class="subscribe-embed-wrap">
-          <iframe
-            src="https://omeronai.substack.com/embed"
-            title="Subscribe to Omer on AI"
-            height="180"
-            scrolling="no"
-            loading="lazy">
-          </iframe>
-        </div>
-        <p class="subscribe-microcopy">No hype. No spam. Unsubscribe anytime.</p>
-      </div>
+      <p class="subscribe-light-microcopy">No hype. No spam. Unsubscribe anytime.</p>
     </div>
   </div>
 </section>
