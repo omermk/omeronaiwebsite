@@ -389,7 +389,18 @@ main { padding-top: 58px; }
 }
 .mobile-nav a:hover { color: var(--blue); text-decoration: none; }
 .mobile-nav a.active { color: var(--blue); }
-.mobile-nav .btn { align-self: flex-start; margin-top: 4px; }
+.mobile-nav .btn {
+  align-self: stretch;
+  justify-content: center;
+  margin-top: 4px;
+  color: var(--white);
+  background: var(--blue);
+  padding: 0 20px;
+  border: none;
+  border-bottom: none;
+  height: 44px;
+  font-size: var(--ui-size);
+}
 
 /* =========================================
    INDEX — HERO (photo left / identity right)
@@ -518,7 +529,6 @@ main { padding-top: 58px; }
 .nav-social[aria-label="Substack"] { padding: 4px; }
 
 /* Mobile nav subscribe button */
-.mobile-nav .btn { height: 40px; font-size: 0.82rem; }
 
 /* Framework section (index) */
 .framework-intro .h-section { margin-top: 14px; }
